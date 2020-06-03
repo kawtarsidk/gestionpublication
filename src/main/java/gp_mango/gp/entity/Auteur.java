@@ -1,16 +1,17 @@
 package gp_mango.gp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Auteur {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
 
     private String nom;
     private String prenom;
+    @Temporal(TemporalType.DATE)
     private Date   dateNaissance;
     private String addresse;
     private String grade;
