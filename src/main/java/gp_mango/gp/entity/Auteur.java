@@ -1,27 +1,25 @@
 package gp_mango.gp.entity;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.JoinTable;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@Document(collection = "auteur")
 public class Auteur {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long id;
     private String nom;
     private String prenom;
-    @Temporal(TemporalType.DATE)
-    private Date   dateNaissance;
+    private Date dateNaissance;
     private String addresse;
     private String grade;
     private String Organisme;
 
-    @ManyToMany
-    @JoinTable(
-            name = "auteur",
-            joinColumns = @JoinColumn(name = "auteur_id"),
-            inverseJoinColumns = @JoinColumn(name = "publication_id"))
+    @DBRef
     List<Publication> publication;
 
 
@@ -36,6 +34,10 @@ public class Auteur {
     }
 
     public Auteur() {
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
