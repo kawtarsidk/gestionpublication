@@ -2,6 +2,7 @@ package gp_mango.gp.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Publication {
@@ -13,17 +14,27 @@ public class Publication {
     private Date date;
     private String versionNum;
     private String resume;
+    private String categorie;
+    private String discipline;
+
+    @ManyToMany(mappedBy = "publication")
+    List<Auteur> auteurs;
 
     public Publication() {
     }
 
-    public Publication(String titre, Date date, String versionNum, String resume) {
+    public Publication(String titre, Date date, String versionNum, String resume, String categorie, String discipline) {
         this.titre = titre;
         this.date = date;
         this.versionNum = versionNum;
         this.resume = resume;
+        this.categorie = categorie;
+        this.discipline = discipline;
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getTitre() {
         return titre;
     }
@@ -54,5 +65,21 @@ public class Publication {
 
     public void setResume(String resume) {
         this.resume = resume;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(String discipline) {
+        this.discipline = discipline;
     }
 }

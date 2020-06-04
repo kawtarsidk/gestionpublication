@@ -2,13 +2,13 @@ package gp_mango.gp.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Auteur {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int id;
-
+    private  Long id;
     private String nom;
     private String prenom;
     @Temporal(TemporalType.DATE)
@@ -17,7 +17,15 @@ public class Auteur {
     private String grade;
     private String Organisme;
 
-    public Auteur(int id, String nom, String prenom, Date dateNaissance, String addresse, String grade, String organisme) {
+    @ManyToMany
+    @JoinTable(
+            name = "auteur",
+            joinColumns = @JoinColumn(name = "auteur_id"),
+            inverseJoinColumns = @JoinColumn(name = "publication_id"))
+    List<Publication> publication;
+
+
+    public Auteur(Long id, String nom, String prenom, Date dateNaissance, String addresse, String grade, String organisme) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -30,10 +38,9 @@ public class Auteur {
     public Auteur() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-
     public String getNom() {
         return nom;
     }
