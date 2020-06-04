@@ -1,13 +1,11 @@
 package gp_mango.gp.entity;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "publicatiomn")
+@Document(collection = "Publication")
 public class Publication {
     @Id
     private Long id;

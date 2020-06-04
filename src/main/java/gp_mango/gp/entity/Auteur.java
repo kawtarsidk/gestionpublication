@@ -1,14 +1,11 @@
 package gp_mango.gp.entity;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.JoinTable;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "auteur")
+@Document(collection = "Auteur")
 public class Auteur {
     @Id
     private  Long id;
