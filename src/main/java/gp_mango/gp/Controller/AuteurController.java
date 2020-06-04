@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("auteurs")
 public class AuteurController {
     @Autowired
-   private AuteurRepository auteurRepository;
+    private AuteurRepository auteurRepository;
 
     @PostMapping("/save")
     public void save(@RequestBody Auteur auteur){
