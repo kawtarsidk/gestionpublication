@@ -27,7 +27,7 @@ public class Auteur {
         this.dateNaissance = dateNaissance;
         this.addresse = addresse;
         this.grade = grade;
-        Organisme = organisme;
+        this.Organisme = organisme;
     }
 
     public Auteur() {
