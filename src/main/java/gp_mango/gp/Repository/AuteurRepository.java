@@ -1,4 +1,7 @@
 package gp_mango.gp.Repository;
 
-public interface AuteurRepository {
+import gp_mango.gp.entity.Auteur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AuteurRepository extends JpaRepository<Auteur,Long> {
 }
