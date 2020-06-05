@@ -9,7 +9,7 @@ import java.util.List;
 public class Publication {
     @Id
     private Long id;
-    private  String titre;
+    private String titre;
     private Date date;
     private String versionNum;
     private String resume;
