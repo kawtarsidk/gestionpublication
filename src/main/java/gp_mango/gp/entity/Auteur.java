@@ -11,13 +11,13 @@ public class Auteur {
     private  Long id;
     private String nom;
     private String prenom;
-    private Date dateNaissance;
+   private Date dateNaissance;
     private String addresse;
     private String grade;
     private String Organisme;
 
-    @DBRef
-    List<Publication> publication;
+  //  @DBRef
+    //List<Publication> publication;
 
 
     public Auteur(Long id, String nom, String prenom, Date dateNaissance, String addresse, String grade, String organisme) {

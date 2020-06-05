@@ -21,14 +21,14 @@ public class AuteurController {
         return "addAuteur";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/auteurs")
     public String addAuteur(Auteur auteur, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "addAuteur";
         }
         auteurRepository.save(auteur);
-        model.addAttribute("auteur", auteurRepository.findAll());
-        return "addAuteur";
+        model.addAttribute("auteurs", auteurRepository.findAll());
+        return "auteurs";
     }
 
   /*  @PostMapping("/update/{id}")

@@ -1,27 +1,27 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8"/>
     <title>Ajouter publication</title>
 </head>
 <body>
-        <h1>Ajouter une publication:</h1>
-        <form action= "#" th:action="@{/addPublication}"th:object="${publication} "method="post">
-<!--           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
+        <h1>Create an User:</h1>
+        <form action= "#" th:action="@{/addPublication}" th:object="${publication}" method="post">
             <label for="id">Id</label>
-            <input type="text"th:field="*{id}"id="id"placeholder="ID"><br>
+            <input type="text"th:field="*{id}"id="id"placeholder="ID">
             <label for="id">Titre</label>
-            <input type="text"th:field="*{titre}"id="titre"placeholder="Titre"><br>
+            <input type="text"th:field="*{titre}"id="titre"placeholder="Titre">
             <label for="id">Date</label>
-            <input type="text"th:field="*{date}"id="date"placeholder="Date"><br>
+            <input type="text"th:field="*{date}"id="date"placeholder="Date">
             <label for="id">version Numerique</label>
-            <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum"><br>
+            <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum">
             <label for="id">Resume</label>
-            <input type="text"th:field="*{resume}"id="resume"placeholder="Resume"><br>
+            <input type="text"th:field="*{resume}"id="resume"placeholder="Resume">
             <label for="id">Categorie</label>
-            <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie"><br>
+            <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie">
             <label for="id">Discipline</label>
-            <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline"><br>
+            <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline">
             <input type="submit" value="Ajouter">
         </form>
 <br/>

@@ -6,39 +6,23 @@
 </head>
 <body>
 
-<div th:switch="${auteurs}">
-    <h2 th:case="null">No Autors yet!</h2>
-    <!-- <div th:case="*">
-         <h2>Auteurs</h2>
-         <table>
-             <thead>
-             <tr>
-                 <th>Name</th>
-                 <th>Email</th>
-                 <th>Edit</th>
-                 <th>Delete</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr th:each="user : ${users}">
-                 <td th:text="${auteur.nom}"></td>
-                 <td th:text="${auteur.prenom}"></td>
-                 <td><a th:href="@{/edit/{id}(id=${auteur.id})}">Edit</a></td>
-                 <td><a th:href="@{/delete/{id}(id=${auteur.id})}">Delete</a></td>
-             </tr>
-             </tbody>
-         </table>
-     </div>-->
- </div>
  <h1>Ajouter un nouvel auteur:</h1>
- <form action="#" th:action="@{/addAuteur}" th:object="${auteur}" method="post">
-     <label for="nom">ID</label> <input type="text" th:field="*{id}" id="id" placeholder="id">
+ <form action="#" th:action="@{/auteurs}" th:object="${auteur}" method="post">
+     <label for="id">ID</label> <input type="text" th:field="*{id}" id="id" placeholder="id">
+     <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
      <label for="nom">Name</label> <input type="text" th:field="*{nom}" id="nom" placeholder="nom">
+     <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+
      <label for="prenom">Prenom</label> <input type="text" th:field="*{prenom}" id="prenom" placeholder="prenom">
-     <label for="adresse">Adresse</label> <input type="text" th:field="*{addresse}" id="adresse" placeholder="adresse">
+     <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
+     <label for="addresse">Adresse</label> <input type="text" th:field="*{addresse}" id="addresse" placeholder="addresse">
+     <span th:if="${#fields.hasErrors('addresse')}" th:errors="*{addresse}"></span>
      <label for="grade">grade</label> <input type="text" th:field="*{grade}" id="grade" placeholder="grade">
-     <label for="datenaiss">Date de Naissance</label> <input type="date" th:field="*{dateNaissance}" id="datenaiss" placeholder="datenaiss">
-     <label for="organisme">Organisme</label> <input type="organisme" th:field="*{Organisme}" id="organisme" placeholder="organisme">
+    <!-- <span th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}"></span>
+     <label for="dateNaissance">Date de Naissance</label> <input type="date" th:field="*{dateNaissance}" id="dateNaissance" placeholder="dateNaissance">-->
+     <span th:if="${#fields.hasErrors('dateNaissance')}" th:errors="*{dateNaissance}"></span>
+     <label for="Organisme">Organisme</label> <input type="organisme" th:field="*{Organisme}" id="Organisme" placeholder="Organisme">
+     <span th:if="${#fields.hasErrors('Organisme')}" th:errors="*{Organisme}"></span>
      <input type="submit" value="Add Auteur">
  </form>
 <br />

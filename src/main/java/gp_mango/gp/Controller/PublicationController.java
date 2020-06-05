@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class PublicationController {
+public class PubliationController {
     @Autowired
     private PublicationRepository publicationRepository;
 
@@ -18,20 +18,21 @@ public class PublicationController {
     public String addPub(Publication publication)
     {return "addPublication";}
 
-    @PostMapping("/savePublication")
+    @PostMapping("/save")
     public String save(Publication publication, BindingResult result, Model model ){
+
         if (result.hasErrors()) {
-            return "addPublication";
+            return "erreur";
         }
         publicationRepository.save(publication);
         model.addAttribute("publication", publicationRepository.findAll());
         return "publicationList";
     }
 
-    @GetMapping("/getPublication")
+    @GetMapping("/get")
     public String findAll(Model model) {
         model.addAttribute("publication", publicationRepository.findAll());
-        return "publicationList";
+        return "list des publications";
     }
 
     @DeleteMapping("/delete/{id}")
@@ -40,7 +41,7 @@ public class PublicationController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         publicationRepository.delete(publication);
         model.addAttribute("publication", publicationRepository.findAll());
-        return "publicationList";
+        return "index";
     }
 
     @PutMapping("/update/{id}")
@@ -51,6 +52,6 @@ public class PublicationController {
         }
         publicationRepository.save(publication);
         model.addAttribute("users", publicationRepository.findAll());
-        return "publicationList";
+        return "index";
     }
 }
