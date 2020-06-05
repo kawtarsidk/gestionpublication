@@ -7,13 +7,13 @@
 </head>
 <body>
         <h1>Create an User:</h1>
-        <form action= "#" th:action="@{/save}" th:object="${publication}" method="post">
+        <form action= "#" th:action="@{/savepub}" th:object="${publication}" method="post">
             <label for="id">Id</label>
             <input type="text"th:field="*{id}"id="id"placeholder="ID">
             <label for="id">Titre</label>
             <input type="text"th:field="*{titre}"id="titre"placeholder="Titre">
-            <label for="id">Date</label>
-            <input type="text"th:field="*{date}"id="date"placeholder="Date">
+            <!--<label for="id">Date</label>
+            <input type="text"th:field="*{date}"id="date"placeholder="Date">-->
             <label for="id">version Numerique</label>
             <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum">
             <label for="id">Resume</label>

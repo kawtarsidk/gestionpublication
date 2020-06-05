@@ -18,8 +18,8 @@ public class PublicationController {
     public String addPub(Publication publication)
     {return "addPublication";}
 
-    @PostMapping("/save")
-    public String save(Publication publication, BindingResult result, Model model ){
+    @PostMapping("/savepub")
+    public String savepub(Publication publication, BindingResult result, Model model ){
 
         if (result.hasErrors()) {
             return "addPublication";
@@ -29,11 +29,11 @@ public class PublicationController {
         return "publicationList";
     }
 
-    @GetMapping("/getPublication")
+   /* @GetMapping("/getPublication")
     public String findAll(Model model) {
         model.addAttribute("publication", publicationRepository.findAll());
         return "publicationList";
-    }
+    }*/
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id, Model model) {
