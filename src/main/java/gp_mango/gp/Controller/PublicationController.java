@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class PubliationController {
+public class PublicationController {
     @Autowired
     private PublicationRepository publicationRepository;
 
@@ -22,17 +22,17 @@ public class PubliationController {
     public String save(Publication publication, BindingResult result, Model model ){
 
         if (result.hasErrors()) {
-            return "erreur";
+            return "addPublication";
         }
         publicationRepository.save(publication);
         model.addAttribute("publication", publicationRepository.findAll());
         return "publicationList";
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getPublication")
     public String findAll(Model model) {
         model.addAttribute("publication", publicationRepository.findAll());
-        return "list des publications";
+        return "publicationList";
     }
 
     @DeleteMapping("/delete/{id}")

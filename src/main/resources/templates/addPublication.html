@@ -7,7 +7,7 @@
 </head>
 <body>
         <h1>Create an User:</h1>
-        <form action= "#" th:action="@{/addPublication}" th:object="${publication}" method="post">
+        <form action= "#" th:action="@{/save}" th:object="${publication}" method="post">
             <label for="id">Id</label>
             <input type="text"th:field="*{id}"id="id"placeholder="ID">
             <label for="id">Titre</label>
