@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Liste des publications</title>
@@ -7,7 +7,34 @@
 <body>
         <h1>liste des publications</h1>
         <div th:switch="${publication}">
-
+            <h2 th:case="null">aucune publication</h2>
+            <div th:case="*">
+                 <h2>Publications</h2>
+                 <table>
+                     <thead>
+                     <tr>
+                         <th>ID</th>
+                         <th>Titre</th>
+                         <th>Date</th>
+                         <th>VersionNum</th>
+                         <th>Resume</th>
+                         <th>Categorie</th>
+                         <th>Discipline</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                     <tr th:each="pub : ${publication}">
+                         <td th:text="${pub.id}"></td>
+                         <td th:text="${pub.titre}"></td>
+                         <td th:text="${pub.date}"></td>
+                         <td th:text="${pub.versionNum}"></td>
+                         <td th:text="${pub.resume}"></td>
+                         <td th:text="${pub.categorie}"></td>
+                         <td th:text="${pub.discipline}"></td>
+                     </tr>
+                     </tbody>
+                 </table>
+             </div>
         </div>
 </body>
 </html>

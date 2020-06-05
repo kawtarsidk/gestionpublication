@@ -23,7 +23,6 @@ public class AuteurController {
 
     @PostMapping("/add")
     public String addAuteur(Auteur auteur, BindingResult result, Model model) {
-
         if (result.hasErrors()) {
             return "addAuteur";
         }
