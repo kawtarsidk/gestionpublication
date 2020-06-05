@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un Auteur</title>
+</head>
+<body>
+
+<div th:switch="${auteurs}">
+    <h2 th:case="null">No Autors yet!</h2>
+    <!-- <div th:case="*">
+         <h2>Auteurs</h2>
+         <table>
+             <thead>
+             <tr>
+                 <th>Name</th>
+                 <th>Email</th>
+                 <th>Edit</th>
+                 <th>Delete</th>
+             </tr>
+             </thead>
+             <tbody>
+             <tr th:each="user : ${users}">
+                 <td th:text="${auteur.nom}"></td>
+                 <td th:text="${auteur.prenom}"></td>
+                 <td><a th:href="@{/edit/{id}(id=${auteur.id})}">Edit</a></td>
+                 <td><a th:href="@{/delete/{id}(id=${auteur.id})}">Delete</a></td>
+             </tr>
+             </tbody>
+         </table>
+     </div>-->
+ </div>
+ <h1>Ajouter un nouvel auteur:</h1>
+ <form action="#" th:action="@{/addAuteur}" th:object="${auteur}" method="post">
+     <label for="nom">ID</label> <input type="text" th:field="*{id}" id="id" placeholder="id">
+     <label for="nom">Name</label> <input type="text" th:field="*{nom}" id="nom" placeholder="nom">
+     <label for="prenom">Prenom</label> <input type="text" th:field="*{prenom}" id="prenom" placeholder="prenom">
+     <label for="adresse">Adresse</label> <input type="text" th:field="*{addresse}" id="adresse" placeholder="adresse">
+     <label for="grade">grade</label> <input type="text" th:field="*{grade}" id="grade" placeholder="grade">
+     <label for="datenaiss">Date de Naissance</label> <input type="date" th:field="*{dateNaissance}" id="datenaiss" placeholder="datenaiss">
+     <label for="organisme">Organisme</label> <input type="organisme" th:field="*{Organisme}" id="organisme" placeholder="organisme">
+     <input type="submit" value="Add Auteur">
+ </form>
+<br />
+</body>
+</html>

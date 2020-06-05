@@ -4,36 +4,53 @@ import gp_mango.gp.Repository.AuteurRepository;
 import gp_mango.gp.entity.Auteur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("auteurs")
+@Controller
 public class AuteurController {
+
     @Autowired
     private AuteurRepository auteurRepository;
 
-    @PostMapping("/save")
-    public void save(@RequestBody Auteur auteur){
+    @GetMapping("/addAuteur")
+    public String showAddUserForm(Auteur auteur) {
+        return "addAuteur";
+    }
+
+    @PostMapping("/add")
+    public String addAuteur(Auteur auteur, BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            return "addAuteur";
+        }
         auteurRepository.save(auteur);
+        model.addAttribute("auteur", auteurRepository.findAll());
+        return "addAuteur";
     }
 
-    @GetMapping("/get")
-    public List<Auteur> findAll(){
-        return auteurRepository.findAll();
-    }
+  /*  @PostMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") long id, Auteur auteur, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            auteur.setId(id);
+            return "update-auteur";
+        }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable("id")  Long id){
-        auteurRepository.deleteById(id);
-
-    }
-
-    @PutMapping("/update")
-    public void update(@RequestBody Auteur auteur){
         auteurRepository.save(auteur);
+        model.addAttribute("auteurs", auteurRepository.findAll());
+        return "index";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") long id, Model model) {
+       Auteur auteur = auteurRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        auteurRepository.delete(auteur);
+        model.addAttribute("auteurs", auteurRepository.findAll());
+        return "index";
+    }*/
 }
 
 
