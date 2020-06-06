@@ -18,7 +18,7 @@ public class PublicationController {
     public String addPub(Publication publication)
     {return "addPublication";}
 
-    @PostMapping("/savepub")
+    @PostMapping("/savepublication")
     public String savepub(Publication publication, BindingResult result, Model model ){
 
         if (result.hasErrors()) {

@@ -5,6 +5,7 @@
     <title>Liste des publications</title>
 </head>
 <body>
+<div align="center">
         <h1>liste des publications</h1>
         <div th:switch="${publication}">
             <h2 th:case="null">aucune publication</h2>
@@ -36,5 +37,6 @@
                  </table>
              </div>
         </div>
+</div>
 </body>
 </html>

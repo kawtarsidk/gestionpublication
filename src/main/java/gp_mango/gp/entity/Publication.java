@@ -2,6 +2,8 @@ package gp_mango.gp.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +12,7 @@ public class Publication {
     @Id
     private Long id;
     private String titre;
-    private Date date;
+    private String date;
     private String versionNum;
     private String resume;
     private String categorie;
@@ -22,7 +24,7 @@ public class Publication {
     public Publication() {
     }
 
-    public Publication(Long id,String titre, Date date, String versionNum, String resume, String categorie, String discipline) {
+    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline) {
         this.id = id;
         this.titre = titre;
         this.date = date;
@@ -48,11 +50,11 @@ public class Publication {
         this.titre = titre;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

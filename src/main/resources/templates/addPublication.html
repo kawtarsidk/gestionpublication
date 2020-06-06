@@ -1,29 +1,48 @@
+
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <!DOCTYPE html>
-
 <head>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
     <meta charset="UTF-8"/>
     <title>Ajouter publication</title>
 </head>
 <body>
-        <h1>Create an User:</h1>
-        <form action= "#" th:action="@{/savepub}" th:object="${publication}" method="post">
+<div align="center">
+        <h1>Ajouter une publication:</h1>
+        <form action= "#" th:action="@{/savepublication}" th:object="${publication}" method="post">
             <label for="id">Id</label>
-            <input type="text"th:field="*{id}"id="id"placeholder="ID">
+            <input type="text"th:field="*{id}"id="id"placeholder="ID"><br/>
             <label for="id">Titre</label>
-            <input type="text"th:field="*{titre}"id="titre"placeholder="Titre">
-            <!--<label for="id">Date</label>
-            <input type="text"th:field="*{date}"id="date"placeholder="Date">-->
+            <input type="text"th:field="*{titre}"id="titre"placeholder="Titre"><br/>
+            <label for="id">Date (yyyy-mm-dd)</label>
+            <input type="text"th:field="*{date}"id="date"placeholder="Date"><br/>
             <label for="id">version Numerique</label>
-            <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum">
+            <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum"><br/>
             <label for="id">Resume</label>
-            <input type="text"th:field="*{resume}"id="resume"placeholder="Resume">
+            <input type="text"th:field="*{resume}"id="resume"placeholder="Resume"><br/>
             <label for="id">Categorie</label>
-            <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie">
+            <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie"><br/>
             <label for="id">Discipline</label>
-            <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline">
+            <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline"><br/>
             <input type="submit" value="Ajouter">
         </form>
 <br/>
+</div>
 </body>
 </html>
