@@ -30,6 +30,23 @@ public class PublicationService {
                     .addCriteria((Criteria.where("auteur").is(auteur)));
             return mongoTemplate.find(query, Auteur.class);
         }
-        
+
+        //chercher par categorie
+
+        public List<Publication> findByCategorie(String categorie){
+        Query query = new Query()
+                .addCriteria((Criteria.where("categorie").is(categorie)));
+        return mongoTemplate.find(query, Publication.class);
+        }
+
+        //chercher par discipline
+
+        public List<Publication> findByDiscipline(String discipline){
+            Query query = new Query()
+                .addCriteria((Criteria.where("discipline").is(discipline)));
+        return mongoTemplate.find(query, Publication.class);
+        }
+
+
 
     }
