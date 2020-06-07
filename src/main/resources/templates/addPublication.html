@@ -40,6 +40,16 @@
             <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie"><br/>
             <label for="id">Discipline</label>
             <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline"><br/>
+            <!--     Ajout de la list deroulante d'auteur       -->
+            <label for="id">Auteur</label>
+                <select  th:object="${auteur}">
+                    <option
+                            th:each="dropDownItem : ${auteur}"
+                            th:value="${dropDownItem.getId()}"
+                            th:text="${dropDownItem.getNom()}"
+                    />
+                </select>
+            <br/>
             <input type="submit" value="Ajouter">
         </form>
 <br/>

@@ -12,9 +12,13 @@
             <div th:case="*">
                  <h2>Publications</h2>
                 <form th:action="@{/getPublication}" method="get">
-                <input id="txtSearch" type="text" name="titre" >
+                Chercher par titre<input id="titreSearch" type="text" name="titre" >
                     <button type="submit">chercher</button>
                 </form>
+               <form th:action="@{/getPublication}" method="get">-->
+                   Chercher par auteur<input id="auteurSearch" type="text" name="auteur" >
+                    <button type="submit">chercher</button>-->
+               </form>-->
                     <table>
                      <thead>
                      <tr>

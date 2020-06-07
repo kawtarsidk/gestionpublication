@@ -4,6 +4,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,12 +20,12 @@ public class Publication {
     private String discipline;
 
     @DBRef
-    List<Auteur> auteurs;
+    List<Auteur> auteurList= new ArrayList<Auteur>();
 
     public Publication() {
     }
 
-    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline) {
+    public Publication(Long id, String titre, String date, String versionNum, String resume, String categorie, String discipline, List<Auteur> auteurList) {
         this.id = id;
         this.titre = titre;
         this.date = date;
@@ -32,7 +33,9 @@ public class Publication {
         this.resume = resume;
         this.categorie = categorie;
         this.discipline = discipline;
+        this.auteurList = auteurList;
     }
+
 
     public Long getId() {
         return id;
@@ -88,5 +91,13 @@ public class Publication {
 
     public void setDiscipline(String discipline) {
         this.discipline = discipline;
+    }
+
+    public List<Auteur> getAuteurList() {
+        return auteurList;
+    }
+
+    public void setAuteurList(List<Auteur> auteurList) {
+        this.auteurList = auteurList;
     }
 }

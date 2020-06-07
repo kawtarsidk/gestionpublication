@@ -1,10 +1,12 @@
 package gp_mango.gp.Repository;
+import gp_mango.gp.entity.Auteur;
 import gp_mango.gp.entity.Publication;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class PublicationService {
@@ -15,9 +17,19 @@ public class PublicationService {
             this.mongoTemplate = mongoTemplate;
         }
 
+        //chercher par titre de publication
         public List<Publication> findByTitre(String titre){
-            org.springframework.data.mongodb.core.query.Query query = new Query()
+            Query query = new Query()
                     .addCriteria((Criteria.where("titre").is(titre)));
             return mongoTemplate.find(query, Publication.class);
         }
+
+        //chercher par auteur
+        public List<Auteur> findByAuteur(String auteur){
+            Query query = new Query()
+                    .addCriteria((Criteria.where("auteur").is(auteur)));
+            return mongoTemplate.find(query, Auteur.class);
+        }
+        
+
     }
