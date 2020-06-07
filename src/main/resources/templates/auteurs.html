@@ -6,10 +6,15 @@
 </head>
 <body>
 
+<div align="center">
 <div th:switch="${auteurs}">
     <h2 th:case="null">No Autors yet!</h2>
     <div th:case="*">
          <h2>Auteurs</h2>
+        <form th:action="@{/getAuteur}" method="get">
+            <input id="txtSearch" type="text" name="name" >
+            <button type="submit">chercher</button>
+        </form>
          <table>
              <thead>
              <tr>
@@ -20,7 +25,6 @@
                  <th>adresse</th>
                  <th>grade</th>
                  <th>organisme</th>
-                 <th>Edit</th>
                  <th>Delete</th>
              </tr>
              </thead>
@@ -33,12 +37,11 @@
                  <td th:text="${auteur.addresse}"></td>
                  <td th:text="${auteur.grade}"></td>
                  <td th:text="${auteur.Organisme}"></td>
-                 <td><a th:href="@{/edit/{id}(id=${auteur.id})}">Edit</a></td>
-                 <td><a th:href="@{/delete/{id}(id=${auteur.id})}">Delete</a></td>-->
              </tr>
              </tbody>
          </table>
      </div>
+</div>
 </div>
 </body>
 </html>

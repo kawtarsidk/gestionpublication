@@ -1,6 +1,7 @@
 package gp_mango.gp.Controller;
 
 import gp_mango.gp.Repository.AuteurRepository;
+import gp_mango.gp.Repository.AuteurService;
 import gp_mango.gp.entity.Auteur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,12 @@ import java.util.List;
 @Controller
 public class AuteurController {
 
+
     @Autowired
     private AuteurRepository auteurRepository;
+    @Autowired
+    private AuteurService auteurService;
+
 
     @GetMapping("/addAuteur")
     public String showAddUserForm(Auteur auteur) {
@@ -28,6 +33,18 @@ public class AuteurController {
         }
         auteurRepository.save(auteur);
         model.addAttribute("auteurs", auteurRepository.findAll());
+        return "auteurs";
+    }
+    @GetMapping("/getAuteur")
+    public String findAll(Model model, String name) {
+
+        if(name!=null){
+            model.addAttribute("auteurs", auteurService.findByName(name));
+            return "auteurs";
+        }
+        else
+        {
+            model.addAttribute("auteurs", auteurRepository.findAll());}
         return "auteurs";
     }
 

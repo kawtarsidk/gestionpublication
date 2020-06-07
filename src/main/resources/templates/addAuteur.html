@@ -5,26 +5,55 @@
     <title>Ajouter un Auteur</title>
 </head>
 <body>
+<div align="center">
+    <h1>Ajouter un nouvel auteur:</h1>
+    <form action="#" th:action="@{/auteurs}" th:object="${auteur}" method="post">
+        <table>
+            <tr>
+                <th><label for="id">ID</label></th>
+                <td><input type="text" th:field="*{id}" id="id" placeholder="ID">
+                    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></td>
+            </tr>
 
- <h1>Ajouter un nouvel auteur:</h1>
- <form action="#" th:action="@{/auteurs}" th:object="${auteur}" method="post">
-     <label for="id">ID</label> <input type="text" th:field="*{id}" id="id" placeholder="id">
-     <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-     <label for="nom">Name</label> <input type="text" th:field="*{nom}" id="nom" placeholder="nom">
-     <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+            <tr>
 
-     <label for="prenom">Prenom</label> <input type="text" th:field="*{prenom}" id="prenom" placeholder="prenom">
-     <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
-     <label for="addresse">Adresse</label> <input type="text" th:field="*{addresse}" id="addresse" placeholder="addresse">
-     <span th:if="${#fields.hasErrors('addresse')}" th:errors="*{addresse}"></span>
-     <label for="grade">grade</label> <input type="text" th:field="*{grade}" id="grade" placeholder="grade">
-    <!-- <span th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}"></span>
-     <label for="dateNaissance">Date de Naissance</label> <input type="date" th:field="*{dateNaissance}" id="dateNaissance" placeholder="dateNaissance">-->
-     <span th:if="${#fields.hasErrors('dateNaissance')}" th:errors="*{dateNaissance}"></span>
-     <label for="Organisme">Organisme</label> <input type="organisme" th:field="*{Organisme}" id="Organisme" placeholder="Organisme">
-     <span th:if="${#fields.hasErrors('Organisme')}" th:errors="*{Organisme}"></span>
-     <input type="submit" value="Add Auteur">
- </form>
-<br />
+                <th><label for="nom">Name</label></th>
+                <td><input type="text" th:field="*{nom}" id="nom" placeholder="nom">
+                    <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span></td>
+            </tr>
+            <tr>
+                <th><label for="prenom">Prenom</label></th>
+                <td><input type="text" th:field="*{prenom}" id="prenom" placeholder="prenom">
+                    <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span></td>
+            </tr>
+            <tr>
+                <th><label for="addresse">Adresse</label></th>
+                <td><input type="text" th:field="*{addresse}" id="addresse" placeholder="addresse">
+                    <span th:if="${#fields.hasErrors('addresse')}" th:errors="*{addresse}"></span></td>
+            </tr>
+            <tr>
+                <th><label for="grade">grade</label></th>
+                <td><input type="text" th:field="*{grade}" id="grade" placeholder="grade"><br>
+                    <span th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}"></span></td>
+            </tr>
+            <tr>
+                <th><label for="dateNaissance">Date de Naissance</label></th>
+                <td><input type="date" th:field="*{dateNaissance}" id="dateNaissance" placeholder="dateNaissance">
+                    <span th:if="${#fields.hasErrors('dateNaissance')}" th:errors="*{dateNaissance}"></span></td>
+            </tr>
+            <tr>
+                <th><label for="Organisme">Organisme</label></th>
+                <td><input type="organisme" th:field="*{Organisme}" id="Organisme" placeholder="Organisme"><br>
+                    <span th:if="${#fields.hasErrors('Organisme')}" th:errors="*{Organisme}"></span></td>
+
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Add Auteur">
+    </form>
+</div>
+<br/>
 </body>
 </html>
