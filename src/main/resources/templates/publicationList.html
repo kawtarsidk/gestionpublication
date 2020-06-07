@@ -11,7 +11,11 @@
             <h2 th:case="null">aucune publication</h2>
             <div th:case="*">
                  <h2>Publications</h2>
-                 <table>
+                <form th:action="@{/getPublication}" method="get">
+                <input id="txtSearch" type="text" name="titre" >
+                    <button type="submit">chercher</button>
+                </form>
+                    <table>
                      <thead>
                      <tr>
                          <th>ID</th>
