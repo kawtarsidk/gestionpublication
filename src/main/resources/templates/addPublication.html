@@ -1,4 +1,3 @@
-
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <!DOCTYPE html>
 <head>
@@ -9,6 +8,7 @@
             margin: 5px;
             text-align: left;
         }
+
         input[type=text], input[type=password], select {
             display: inline-block;
             width: 200px;
@@ -24,32 +24,32 @@
 </head>
 <body>
 <div align="center">
-        <h1>Ajouter une publication:</h1>
-        <form action= "#" th:action="@{/savepublication}" th:object="${publication}" method="post">
-            <label for="id">Id</label>
-            <input type="text"th:field="*{id}"id="id"placeholder="ID"><br/>
-            <label for="id">Titre</label>
-            <input type="text"th:field="*{titre}"id="titre"placeholder="Titre"><br/>
-            <label for="id">Date (yyyy-mm-dd)</label>
-            <input type="text"th:field="*{date}"id="date"placeholder="Date"><br/>
-            <label for="id">version Numerique</label>
-            <input type="text"th:field="*{versionNum}"id="versionNum"placeholder="VersionNum"><br/>
-            <label for="id">Resume</label>
-            <input type="text"th:field="*{resume}"id="resume"placeholder="Resume"><br/>
-            <label for="id">Categorie</label>
-            <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie"><br/>
-            <label for="id">Discipline</label>
-            <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline"><br/>
-           //selectionner un auteur
-            <label for="id">Auteur</label>
-            <select th:field="*{auteurs}">
-                <option th:each="auteur : ${auteurs}" th:value="${auteur}" th:text="${auteur.nom}">
-                </option>
-            </select>
-            <span th:if="${#fields.hasErrors('auteurs')}" th:errors="*{auteurs}"></span>
-            <input type="submit" value="Ajouter">
-        </form>
-<br/>
+    <h1>Ajouter une publication:</h1>
+    <form action="#" th:action="@{/savepublication}" th:object="${publication}" method="post">
+        <label for="id">Id</label>
+        <input type="text" th:field="*{id}" id="id" placeholder="ID"><br/>
+        <label for="id">Titre</label>
+        <input type="text" th:field="*{titre}" id="titre" placeholder="Titre"><br/>
+        <label for="id">Date (yyyy-mm-dd)</label>
+        <input type="text" th:field="*{date}" id="date" placeholder="Date"><br/>
+        <label for="id">version Numerique</label>
+        <input type="text" th:field="*{versionNum}" id="versionNum" placeholder="VersionNum"><br/>
+        <label for="id">Resume</label>
+        <input type="text" th:field="*{resume}" id="resume" placeholder="Resume"><br/>
+        <label for="id">Categorie</label>
+        <input type="text" th:field="*{categorie}" id="categorie" placeholder="Categorie"><br/>
+        <label for="id">Discipline</label>
+        <input type="text" th:field="*{discipline}" id="discipline" placeholder="Discipline"><br/>
+        //selectionner un auteur
+        <label for="id">Auteur</label>
+        <select th:field="*{auteurs}">
+            <option th:each="auteur : ${auteurs}" th:value="${auteur}" th:text="${auteur.nom}">
+            </option>
+        </select>
+        <span th:if="${#fields.hasErrors('auteurs')}" th:errors="*{auteurs}"></span>
+        <input type="submit" value="Ajouter">
+    </form>
+    <br/>
 </div>
 </body>
 </html>

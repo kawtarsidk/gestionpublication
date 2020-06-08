@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class PublicationController {
     @Autowired
     private PublicationRepository publicationRepository;
-
-    //redefinition de la classe publicationService
     @Autowired
     private PublicationService publicationService;
     @Autowired
