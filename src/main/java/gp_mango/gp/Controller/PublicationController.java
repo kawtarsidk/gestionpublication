@@ -41,7 +41,7 @@ public class PublicationController {
     }
 
     @GetMapping("/getPublication")
-    public String findAll(Model model, String titre) {
+    public String findAll(Model model, String titre, String categorie, String discipline) {
 
         // l'ajout de la mothode findByTitre definie sur la classe PublicationService
         if(titre!=null){
@@ -50,8 +50,23 @@ public class PublicationController {
         }
         else
         {
-            model.addAttribute("publication", publicationRepository.findAll());
+            model.addAttribute("publication", publicationRepository.findAll());}
+
+        if(categorie!=null){
+            model.addAttribute("publication", publicationService.findByCategorie(categorie));
+            return "publicationList";
         }
+        else
+        {
+            model.addAttribute("publication", publicationRepository.findAll());}
+
+        if(discipline!=null){
+            model.addAttribute("publication", publicationService.findByDiscipline(discipline));
+            return "publicationList";
+        }
+        else
+        {
+            model.addAttribute("publication", publicationRepository.findAll());}
 
         return "publicationList";
     }
