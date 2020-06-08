@@ -40,6 +40,14 @@
             <input type="text"th:field="*{categorie}"id="categorie"placeholder="Categorie"><br/>
             <label for="id">Discipline</label>
             <input type="text"th:field="*{discipline}"id="discipline"placeholder="Discipline"><br/>
+            <label for="id">Auteur</label>
+
+
+            <select th:field="*{auteurs}">
+                <option th:each="auteur : ${auteurs}" th:value="${auteur}" th:text="${auteur.nom}">
+                </option>
+            </select>
+            <span th:if="${#fields.hasErrors('auteurs')}" th:errors="*{auteurs}"></span>
             <input type="submit" value="Ajouter">
         </form>
 <br/>

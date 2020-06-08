@@ -1,5 +1,6 @@
 package gp_mango.gp.Controller;
 
+import gp_mango.gp.Repository.AuteurRepository;
 import gp_mango.gp.Repository.PublicationRepository;
 import gp_mango.gp.Repository.PublicationService;
 import gp_mango.gp.entity.Publication;
@@ -18,10 +19,15 @@ public class PublicationController {
     //redefinition de la classe publicationService
     @Autowired
     private PublicationService publicationService;
+    @Autowired
+    private AuteurRepository auteurRepository;
 
     @GetMapping("/addPublication")
-    public String addPub(Publication publication)
-    {return "addPublication";}
+    public String addPub(Publication publication, Model model)
+    {
+        model.addAttribute("auteurs", auteurRepository.findAll());
+        return "addPublication";
+    }
 
     @PostMapping("/savepublication")
     public String savepub(Publication publication, BindingResult result, Model model ){
@@ -44,7 +50,9 @@ public class PublicationController {
         }
         else
         {
-            model.addAttribute("publication", publicationRepository.findAll());}
+            model.addAttribute("publication", publicationRepository.findAll());
+        }
+
         return "publicationList";
     }
 

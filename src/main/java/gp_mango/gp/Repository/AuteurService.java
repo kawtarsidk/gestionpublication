@@ -22,5 +22,7 @@ public class AuteurService {
                 .addCriteria((Criteria.where("nom").is(name)));
         return mongoTemplate.find(query, Auteur.class);
     }
+
+
 }
 

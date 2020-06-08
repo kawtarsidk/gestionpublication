@@ -18,13 +18,21 @@ public class Publication {
     private String categorie;
     private String discipline;
 
+    public Auteur getAuteurs() {
+        return auteur;
+    }
+
+    public void setAuteurs(Auteur auteur) {
+        this.auteur = auteur;
+    }
+
     @DBRef
-    List<Auteur> auteurs;
+    Auteur auteur;
 
     public Publication() {
     }
 
-    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline) {
+    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline , Auteur auteur) {
         this.id = id;
         this.titre = titre;
         this.date = date;
@@ -32,6 +40,7 @@ public class Publication {
         this.resume = resume;
         this.categorie = categorie;
         this.discipline = discipline;
+        this.auteur= auteur;
     }
 
     public Long getId() {
