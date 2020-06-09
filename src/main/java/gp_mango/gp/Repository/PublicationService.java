@@ -24,13 +24,6 @@ public class PublicationService {
             return mongoTemplate.find(query, Publication.class);
         }
 
-        //chercher par auteur
-        public List<Auteur> findByAuteur(String auteur){
-            Query query = new Query()
-                    .addCriteria((Criteria.where("auteur").is(auteur)));
-            return mongoTemplate.find(query, Auteur.class);
-        }
-
         //chercher par categorie
 
         public List<Publication> findByCategorie(String categorie){
@@ -45,6 +38,15 @@ public class PublicationService {
             Query query = new Query()
                 .addCriteria((Criteria.where("discipline").is(discipline)));
         return mongoTemplate.find(query, Publication.class);
+        }
+
+        //trouverPublications par auteur
+         public List<Publication> findByAuteur (String auteurName) {
+        Query query = new Query();
+
+        query.addCriteria(Criteria.where("auteur").is(auteurName));
+        return mongoTemplate.find(query, Publication.class);
+
         }
 
 

@@ -17,7 +17,7 @@ public class AuteurService {
         this.mongoTemplate = mongoTemplate;
     }
 
-    public List<Auteur> findByName(String name){
+    public List<Auteur> findByName(String name) {
         org.springframework.data.mongodb.core.query.Query query = new Query()
                 .addCriteria((Criteria.where("nom").is(name)));
         return mongoTemplate.find(query, Auteur.class);

@@ -30,8 +30,8 @@
         <input type="text" th:field="*{id}" id="id" placeholder="ID"><br/>
         <label for="id">Titre</label>
         <input type="text" th:field="*{titre}" id="titre" placeholder="Titre"><br/>
-        <label for="id">Date (yyyy-mm-dd)</label>
-        <input type="text" th:field="*{date}" id="date" placeholder="Date"><br/>
+        <label for="id">Date </label>
+        <input type="date" th:field="*{date}" id="date" placeholder="Date"><br/>
         <label for="id">version Numerique</label>
         <input type="text" th:field="*{versionNum}" id="versionNum" placeholder="VersionNum"><br/>
         <label for="id">Resume</label>
@@ -42,11 +42,11 @@
         <input type="text" th:field="*{discipline}" id="discipline" placeholder="Discipline"><br/>
         //selectionner un auteur
         <label for="id">Auteur</label>
-        <select th:field="*{auteurs}">
-            <option th:each="auteur : ${auteurs}" th:value="${auteur}" th:text="${auteur.nom}">
+        <select th:field="*{auteur}">
+            <option th:each="a : ${auteurs}" th:value="${a.nom}" th:text="${a.nom}">
             </option>
         </select>
-        <span th:if="${#fields.hasErrors('auteurs')}" th:errors="*{auteurs}"></span>
+        <span th:if="${#fields.hasErrors('auteur')}" th:errors="*{auteur}"></span>
         <input type="submit" value="Ajouter">
     </form>
     <br/>

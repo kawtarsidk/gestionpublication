@@ -2,6 +2,7 @@ package gp_mango.gp.Controller;
 
 import gp_mango.gp.Repository.AuteurRepository;
 import gp_mango.gp.Repository.AuteurService;
+import gp_mango.gp.Repository.PublicationRepository;
 import gp_mango.gp.Repository.PublicationService;
 import gp_mango.gp.entity.Auteur;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +11,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class AuteurController {
-
-
-    @Autowired
-    private AuteurRepository auteurRepository;
-    @Autowired
-    private AuteurService    auteurService;
     @Autowired
     private PublicationService publicationService;
+
+    @Autowired
+    private PublicationRepository publicationRepository;
+    @Autowired
+    private AuteurService auteurService;
+    @Autowired
+    private AuteurRepository auteurRepository;
+
 
     @GetMapping("/addAuteur")
     public String showAddUserForm(Auteur auteur) {
@@ -39,13 +40,14 @@ public class AuteurController {
     }
 
     @GetMapping("/getAuteur")
-    public String findAll(Model model, String name, String titre) {
+    public String findAll(Model model, String name) {
 
         if (name != null) {
             model.addAttribute("auteurs", auteurService.findByName(name));
             return "auteurs";
         } else {
             model.addAttribute("auteurs", auteurRepository.findAll());
+            model.addAttribute("nbrPub",publicationRepository.countByAuteur());
         }
         return "auteurs";
     }
@@ -59,6 +61,7 @@ public class AuteurController {
         else
         {
             model.addAttribute("auteurs", auteurRepository.findAll());
+
         }
         return "auteurs";
     }

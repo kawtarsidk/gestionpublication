@@ -3,10 +3,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 @Document(collection = "Publication")
 public class Publication {
     @Id
@@ -17,22 +13,23 @@ public class Publication {
     private String resume;
     private String categorie;
     private String discipline;
+    private String auteur;
 
-    public Auteur getAuteurs() {
+    public String getAuteur() {
         return auteur;
     }
 
-    public void setAuteurs(Auteur auteur) {
+    public void setAuteur(String auteur) {
         this.auteur = auteur;
     }
 
-    @DBRef
-    Auteur auteur;
+
+
 
     public Publication() {
     }
 
-    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline , Auteur auteur) {
+    public Publication(Long id,String titre, String date, String versionNum, String resume, String categorie, String discipline ,String auteurName) {
         this.id = id;
         this.titre = titre;
         this.date = date;
@@ -40,7 +37,7 @@ public class Publication {
         this.resume = resume;
         this.categorie = categorie;
         this.discipline = discipline;
-        this.auteur= auteur;
+        this.auteur = auteurName;
     }
 
     public Long getId() {
