@@ -1,6 +1,7 @@
 package gp_mango.gp.Repository;
 import gp_mango.gp.entity.Auteur;
 import gp_mango.gp.entity.Publication;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -46,10 +47,18 @@ public class PublicationService {
         public List<Publication> findByAut(String auteur){
             Query query = new Query()
                 .addCriteria((Criteria.where("auteur").is(auteur)));
+            // trie croissant
+                query.with(Sort.by(Sort.Direction.ASC, "id"));
         return mongoTemplate.find(query, Publication.class);
         }
 
+        //calculer les publications par auteur
 
+        public long countByAut(String auteur){
+            Query query = new Query()
+                .addCriteria((Criteria.where("auteur").is(auteur)));
+        return mongoTemplate.count(query, Publication.class);
+    }
 
 
     }

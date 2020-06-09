@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>count</title>
+</head>
+<body>
+<div align="center">
+    <h1>liste des publications par auteur </h1><br>
+    <div th:switch="${publication}">
+        <h2 th:case="null">aucune publication</h2>
+        <div th:case="*">
+            <h2>Publications</h2>
+            <h3>Le nombre de publication de l'auteur <h3 th:text="${auteur}"></h3> <h3> est : </h3><h3 th:text="${valeur}"></h3></h3></h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Date</th>
+                    <th>VersionNum</th>
+                    <th>Resume</th>
+                    <th>Categorie</th>
+                    <th>Discipline</th>
+                    <th>Auteur</th>>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pub : ${publication}">
+                    <td th:text="${pub.id}"></td>
+                    <td th:text="${pub.titre}"></td>
+                    <td th:text="${pub.date}"></td>
+                    <td th:text="${pub.versionNum}"></td>
+                    <td th:text="${pub.resume}"></td>
+                    <td th:text="${pub.categorie}"></td>
+                    <td th:text="${pub.discipline}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

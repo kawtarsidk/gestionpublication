@@ -38,6 +38,16 @@ public class PublicationController {
         return "publicationList";
     }
 
+    @GetMapping("/getByAut")
+    public String trie(Model model, String auteur){
+        //calculer le nombre de publication par auteur
+        model.addAttribute("valeur", publicationService.countByAut(auteur));
+        model.addAttribute("publication", publicationService.findByAut(auteur));
+        model.addAttribute("auteur", auteur);
+        return "count";
+
+    }
+
     @GetMapping("/getPublication")
     public String findAll(Model model, String titre, String categorie, String discipline, String auteur) {
 
@@ -68,6 +78,7 @@ public class PublicationController {
 
         if(auteur!=null){
             model.addAttribute("publication", publicationService.findByAut(auteur));
+
             return "publicationList";
         }
         else
