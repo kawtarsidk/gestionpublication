@@ -6,7 +6,7 @@
 </head>
 <body>
 <div align="center">
-        <h1>liste des publications</h1>
+        <h1>liste des publications</h1><br>
         <div th:switch="${publication}">
             <h2 th:case="null">aucune publication</h2>
             <div th:case="*">
@@ -21,6 +21,10 @@
                </form>
                 <form th:action="@{/getPublication}" method="get">
                     Chercher par discipline<input id="disSearch" type="text" name="discipline" >
+                    <button type="submit">chercher</button>
+                </form>
+                <form th:action="@{/getPublication}" method="get">
+                    Chercher par auteur<input id="autSearch" type="text" name="auteur" >
                     <button type="submit">chercher</button>
                 </form>
                     <table>

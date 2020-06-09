@@ -39,7 +39,7 @@ public class PublicationController {
     }
 
     @GetMapping("/getPublication")
-    public String findAll(Model model, String titre, String categorie, String discipline) {
+    public String findAll(Model model, String titre, String categorie, String discipline, String auteur) {
 
         // l'ajout de la mothode findByTitre definie sur la classe PublicationService
         if(titre!=null){
@@ -60,6 +60,14 @@ public class PublicationController {
 
         if(discipline!=null){
             model.addAttribute("publication", publicationService.findByDiscipline(discipline));
+            return "publicationList";
+        }
+        else
+        {
+            model.addAttribute("publication", publicationRepository.findAll());}
+
+        if(auteur!=null){
+            model.addAttribute("publication", publicationService.findByAut(auteur));
             return "publicationList";
         }
         else
