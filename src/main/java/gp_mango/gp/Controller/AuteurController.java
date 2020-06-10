@@ -47,7 +47,6 @@ public class AuteurController {
             return "auteurs";
         } else {
             model.addAttribute("auteurs", auteurRepository.findAll());
-            model.addAttribute("nbrPub",publicationRepository.countByAuteur());
         }
         return "auteurs";
     }

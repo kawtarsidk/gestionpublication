@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <style type="text/css">
+
+        form {
+            display: inline-block;
+            width: 240px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+        table{
+            border-collapse: collapse
+        }
+
+        td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Liste des publications</title>
 </head>
@@ -10,23 +30,22 @@
         <div th:switch="${publication}">
             <h2 th:case="null">aucune publication</h2>
             <div th:case="*">
-                 <h2>Publications</h2>
                 <form th:action="@{/getPublication}" method="get">
-                Chercher par titre<input id="titreSearch" type="text" name="titre" >
+                <input id="titreSearch" type="text" name="titre" placeholder="Chercher par titre">
                     <button type="submit">chercher</button>
                 </form>
                <form th:action="@{/getPublication}" method="get">
-                   Chercher par categorie<input id="categSearch" type="text" name="categorie" >
+                   <input id="categSearch" type="text" name="categorie"  placeholder="Chercher par categorie">
                     <button type="submit">chercher</button>
                </form>
                 <form th:action="@{/getPublication}" method="get">
-                    Chercher par discipline<input id="disSearch" type="text" name="discipline" >
+                    <input id="disSearch" type="text" name="discipline" placeholder="Chercher par discipline">
                     <button type="submit">chercher</button>
                 </form>
                 <form th:action="@{/getByAut}" method="get">
-                    Chercher par auteur<input id="autSearch" type="text" name="auteur" >
+                    <input id="autSearch" type="text" name="auteur" placeholder="Chercher par auteur">
                     <button type="submit">chercher</button>
-                </form>
+                </form><br><br><br>
                     <table>
                      <thead>
                      <tr>

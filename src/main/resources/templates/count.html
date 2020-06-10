@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <style type="text/css">
+        table{
+            border-collapse: collapse
+        }
+
+        td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        h4 {
+            text-align: center;
+            margin: 0;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>count</title>
 </head>
@@ -10,8 +24,7 @@
     <div th:switch="${publication}">
         <h2 th:case="null">aucune publication</h2>
         <div th:case="*">
-            <h2>Publications</h2>
-            <h3>Le nombre de publication de l'auteur <h3 th:text="${auteur}"></h3> <h3> est : </h3><h3 th:text="${valeur}"></h3></h3></h3>
+            <h4>Le nombre de publication de l'auteur   :<h4 th:text="${auteur}"  ></h4> <h4>  est :   </h4><h4 th:text="${valeur}"></h4></h4></h4><br>
             <table>
                 <thead>
                 <tr>
@@ -22,7 +35,6 @@
                     <th>Resume</th>
                     <th>Categorie</th>
                     <th>Discipline</th>
-                    <th>Auteur</th>>
                 </tr>
                 </thead>
                 <tbody>

@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <style type="text/css">
+
+        form {
+            display: inline-block;
+            width: 240px;
+        }
+
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+        table{
+            border-collapse: collapse
+        }
+
+        td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -12,14 +32,9 @@
     <div th:case="*">
          <h2>Auteurs</h2>
         <form th:action="@{/getAuteur}" method="get">
-            <input id="txtSearch" type="text" name="name" >
+            <input id="txtSearch" type="text" name="name" placeholder="chercher par auteur">
             <button type="submit">chercher</button>
-        </form>
-        <form th:action="@{/getPub}" method="get">
-
-            <input id="" type="text" name="titre" >
-            <button type="submit">chercher</button>
-        </form>
+        </form><br><br>
          <table>
              <thead>
              <tr>
@@ -30,7 +45,6 @@
                  <th>adresse</th>
                  <th>grade</th>
                  <th>organisme</th>
-                 <th>Nombre de publications</th>
              </tr>
              </thead>
              <tbody>
@@ -42,7 +56,6 @@
                  <td th:text="${auteur.addresse}"></td>
                  <td th:text="${auteur.grade}"></td>
                  <td th:text="${auteur.Organisme}"></td>
-                 <td th:text="${nbrPub}"></td>
              </tr>
              </tbody>
          </table>

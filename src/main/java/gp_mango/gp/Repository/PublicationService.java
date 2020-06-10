@@ -58,7 +58,9 @@ public class PublicationService {
             Query query = new Query()
                 .addCriteria((Criteria.where("auteur").is(auteur)));
         return mongoTemplate.count(query, Publication.class);
-    }
+        }
+
+    
 
 
     }
